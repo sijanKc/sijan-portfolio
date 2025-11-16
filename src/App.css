@@ -1,0 +1,10 @@
+/* App.css - Essential Styles Only */
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 80px;
+}
+
+/* Remove unused imports from top */
