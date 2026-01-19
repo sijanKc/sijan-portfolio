@@ -1,7 +1,7 @@
 /* Contact Section */
 .contact {
   padding: 120px 0;
-  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
   position: relative;
 }
 
@@ -27,7 +27,7 @@
 .sectionTitle {
   font-size: 3.2rem;
   font-weight: 700;
-  color: #1a202c;
+  color: var(--text-primary);
   margin-bottom: 1.5rem;
   line-height: 1.2;
 }
@@ -55,7 +55,7 @@
 
 .sectionDescription {
   font-size: 1.2rem;
-  color: #718096;
+  color: var(--text-secondary);
   line-height: 1.6;
   max-width: 600px;
   margin: 0 auto;
@@ -63,11 +63,11 @@
 
 /* Contact Info */
 .contactInfo {
-  background: white;
+  background: var(--card-bg);
   padding: 2.5rem;
   border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 40px var(--card-shadow);
+  border: 1px solid var(--border-color);
   height: fit-content;
   position: sticky;
   top: 2rem;
@@ -96,19 +96,26 @@
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
 }
 
 .contactTitle {
   font-size: 1.8rem;
   font-weight: 600;
-  color: #2d3748;
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
 
 .contactSubtitle {
-  color: #718096;
+  color: var(--text-secondary);
   margin-bottom: 2rem;
   line-height: 1.5;
 }
@@ -154,14 +161,14 @@
 .contactLabel {
   display: block;
   font-size: 0.9rem;
-  color: #718096;
+  color: var(--text-secondary);
   margin-bottom: 0.25rem;
 }
 
 .contactValue {
   display: block;
   font-weight: 600;
-  color: #2d3748;
+  color: var(--text-primary);
 }
 
 /* Social Section */
@@ -172,7 +179,7 @@
 .socialTitle {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #2d3748;
+  color: var(--text-primary);
   margin-bottom: 1rem;
 }
 
@@ -190,7 +197,7 @@
   background: rgba(102, 126, 234, 0.05);
   border-radius: 12px;
   text-decoration: none;
-  color: #4a5568;
+  color: var(--text-secondary);
   transition: all 0.3s ease;
   border: 1px solid rgba(102, 126, 234, 0.1);
 }
@@ -211,23 +218,23 @@
 }
 
 .formCard {
-  background: white;
+  background: var(--card-bg);
   padding: 2.5rem;
   border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 40px var(--card-shadow);
+  border: 1px solid var(--border-color);
   height: 100%;
 }
 
 .formTitle {
   font-size: 2rem;
   font-weight: 600;
-  color: #2d3748;
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
 
 .formSubtitle {
-  color: #718096;
+  color: var(--text-secondary);
   margin-bottom: 2rem;
   line-height: 1.5;
 }
@@ -244,30 +251,35 @@
 .formLabel {
   display: block;
   font-weight: 600;
-  color: #2d3748;
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
   font-size: 0.95rem;
 }
 
-.formInput, .formTextarea {
+.formInput,
+.formTextarea {
   width: 100%;
   padding: 0.875rem 1rem;
-  border: 2px solid #e2e8f0;
+  border: 2px solid var(--border-color);
   border-radius: 12px;
   font-size: 1rem;
   transition: all 0.3s ease;
-  background: white;
+  background: var(--bg-primary);
+  color: var(--text-primary);
   font-family: inherit;
 }
 
-.formInput:focus, .formTextarea:focus {
+.formInput:focus,
+.formTextarea:focus {
   outline: none;
   border-color: #667eea;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
-.formInput::placeholder, .formTextarea::placeholder {
-  color: #a0aec0;
+.formInput::placeholder,
+.formTextarea::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
 }
 
 .formTextarea {
@@ -319,12 +331,18 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Status Messages */
-.successMessage, .errorMessage {
+.successMessage,
+.errorMessage {
   padding: 1rem;
   border-radius: 12px;
   margin-top: 1rem;
@@ -378,7 +396,8 @@
   flex-wrap: wrap;
 }
 
-.phoneBtn, .whatsappBtn {
+.phoneBtn,
+.whatsappBtn {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
@@ -428,22 +447,23 @@
   .contact {
     padding: 80px 0;
   }
-  
+
   .contactFormSection {
     padding-left: 0;
     padding-top: 2rem;
   }
-  
+
   .contactInfo {
     position: static;
     margin-bottom: 2rem;
   }
-  
+
   .sectionTitle {
     font-size: 2.5rem;
   }
-  
-  .formCard, .contactInfo {
+
+  .formCard,
+  .contactInfo {
     padding: 2rem;
   }
 }
@@ -452,21 +472,22 @@
   .sectionTitle {
     font-size: 2rem;
   }
-  
+
   .quickContact {
     padding: 2rem 1.5rem;
   }
-  
+
   .quickContactTitle {
     font-size: 1.5rem;
   }
-  
+
   .quickContactActions {
     flex-direction: column;
     align-items: center;
   }
-  
-  .phoneBtn, .whatsappBtn {
+
+  .phoneBtn,
+  .whatsappBtn {
     width: 200px;
     justify-content: center;
   }
@@ -476,26 +497,27 @@
   .sectionTitle {
     font-size: 1.8rem;
   }
-  
+
   .sectionLabel {
     font-size: 0.8rem;
   }
-  
-  .formCard, .contactInfo {
+
+  .formCard,
+  .contactInfo {
     padding: 1.5rem;
   }
-  
+
   .contactItem {
     flex-direction: column;
     text-align: center;
     gap: 0.75rem;
   }
-  
+
   .socialLinks {
     flex-direction: row;
     flex-wrap: wrap;
   }
-  
+
   .socialLink {
     flex: 1;
     min-width: 120px;

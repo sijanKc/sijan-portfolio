@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import styles from './css/Header.module.css';
+import { useTheme } from '../../context/ThemeContext';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
-      
+
       // Update active section based on scroll position
       const sections = ['home', 'about', 'projects', 'skills', 'contact'];
       const current = sections.find(section => {
@@ -66,9 +68,8 @@ const Header = () => {
                 {navItems.map((item, index) => (
                   <li key={item.name} className="nav-item">
                     <a
-                      className={`nav-link ${styles.navLink} ${
-                        activeSection === item.href.substring(1) ? styles.active : ''
-                      }`}
+                      className={`nav-link ${styles.navLink} ${activeSection === item.href.substring(1) ? styles.active : ''
+                        }`}
                       href={item.href}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
@@ -79,12 +80,23 @@ const Header = () => {
                 ))}
               </ul>
 
-              {/* Call to Action Button */}
-              <div className={styles.ctaContainer}>
-                <a href="#contact" className={`btn ${styles.ctaButton}`}>
-                  Let's Talk
-                  <span className={styles.ctaIcon}>→</span>
-                </a>
+              <div className={styles.actionsContainer}>
+                {/* Theme Toggle */}
+                <button
+                  className={styles.themeToggle}
+                  onClick={toggleTheme}
+                  aria-label="Toggle theme"
+                >
+                  {theme === 'light' ? '🌙' : '☀️'}
+                </button>
+
+                {/* Call to Action Button */}
+                <div className={styles.ctaContainer}>
+                  <a href="#contact" className={`btn ${styles.ctaButton}`}>
+                    Let's Talk
+                    <span className={styles.ctaIcon}>→</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -93,7 +105,7 @@ const Header = () => {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div 
+        <div
           className={styles.mobileOverlay}
           onClick={() => setIsMobileMenuOpen(false)}
         ></div>

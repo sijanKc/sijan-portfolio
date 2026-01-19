@@ -1,10 +1,11 @@
 /* Footer */
 .footer {
-  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  color: var(--text-primary);
   padding: 4rem 0 1rem;
   position: relative;
   overflow: hidden;
+  border-top: 1px solid var(--border-color);
 }
 
 .footer::before {
@@ -44,7 +45,7 @@
 }
 
 .brandDescription {
-  color: #a0aec0;
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
@@ -63,7 +64,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #cbd5e0;
+  color: var(--text-secondary);
   text-decoration: none;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
@@ -82,7 +83,7 @@
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
-  color: white;
+  color: var(--text-primary);
   position: relative;
 }
 
@@ -113,7 +114,7 @@
 }
 
 .footerLink {
-  color: #a0aec0;
+  color: var(--text-secondary);
   text-decoration: none;
   transition: all 0.3s ease;
   font-size: 0.95rem;
@@ -122,7 +123,7 @@
 }
 
 .footerLink:hover {
-  color: white;
+  color: var(--text-primary);
   padding-left: 0.5rem;
 }
 
@@ -157,14 +158,14 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: #a0aec0;
+  color: var(--text-secondary);
   text-decoration: none;
   transition: all 0.3s ease;
   font-size: 0.9rem;
 }
 
 .contactItem:hover {
-  color: white;
+  color: var(--text-primary);
   transform: translateX(5px);
 }
 
@@ -184,7 +185,7 @@
 }
 
 .ctaDescription {
-  color: #a0aec0;
+  color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 1.5rem;
   font-size: 0.9rem;
@@ -221,13 +222,14 @@
 
 /* Footer Bottom */
 .footerBottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--border-color);
   padding-top: 2rem;
   margin-top: 2rem;
 }
 
-.copyright p, .footerNote p {
-  color: #a0aec0;
+.copyright p,
+.footerNote p {
+  color: var(--text-secondary);
   margin: 0;
   font-size: 0.9rem;
 }
@@ -246,11 +248,11 @@
   .footer {
     padding: 3rem 0 1rem;
   }
-  
+
   .brand {
     font-size: 1.5rem;
   }
-  
+
   .sectionTitle {
     font-size: 1.1rem;
   }
@@ -260,25 +262,25 @@
   .footer {
     text-align: center;
   }
-  
+
   .brand {
     justify-content: center;
   }
-  
+
   .socialLinks {
     justify-content: center;
   }
-  
+
   .sectionTitle::after {
     left: 50%;
     transform: translateX(-50%);
   }
-  
+
   .footerNote {
     text-align: center;
     margin-top: 1rem;
   }
-  
+
   .contactItem {
     justify-content: center;
   }
@@ -288,15 +290,15 @@
   .footer {
     padding: 2rem 0 1rem;
   }
-  
+
   .brand {
     font-size: 1.3rem;
   }
-  
+
   .brandDescription {
     font-size: 0.9rem;
   }
-  
+
   .ctaButton {
     width: 100%;
     justify-content: center;

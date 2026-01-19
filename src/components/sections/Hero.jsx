@@ -22,7 +22,7 @@ const Hero = () => {
 
     const timer = setTimeout(() => {
       setDisplayText(
-        isDeleting 
+        isDeleting
           ? current.substring(0, displayText.length - 1)
           : current.substring(0, displayText.length + 1)
       );
@@ -66,7 +66,7 @@ const Hero = () => {
 
               {/* Description */}
               <p className={styles.heroDescription}>
-                An all-rounder developer who loves building end-to-end web solutions — from sleek, responsive interfaces to powerful backend systems. Always exploring new technologies to grow and innovate.
+                An all rounder developer who loves building end-to-end web solutions from sleek, responsive interfaces to powerful backend systems. Always exploring new technologies to grow and innovate.
               </p>
 
               {/* CTA Buttons */}
@@ -105,13 +105,13 @@ const Hero = () => {
                 {/* Profile Image Placeholder - Replace with your image */}
                 <div className={styles.profileImage}>
                   <div className={styles.imagePlaceholder}>
-                        <img 
-                          src={profilePhoto} 
-                          alt="Sijan KC - Software Developer"
-                          className={styles.profileImg}
-                        />              
+                    <img
+                      src={profilePhoto}
+                      alt="Sijan KC - Software Developer"
+                      className={styles.profileImg}
+                    />
                   </div>
-                  
+
                   {/* Floating Elements */}
                   <div className={styles.floatingElement1}>
                     <span>🚀</span>

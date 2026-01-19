@@ -163,8 +163,8 @@ const Skills = () => {
     }
   ];
 
-  const filteredSkills = activeCategory === 'all' 
-    ? skills 
+  const filteredSkills = activeCategory === 'all'
+    ? skills
     : skills.filter(skill => skill.category === activeCategory);
 
   const getStatusColor = (status) => {
@@ -194,7 +194,7 @@ const Skills = () => {
               <h2 className={styles.sectionTitle}>Technical & Professional Abilities</h2>
               <div className={styles.headerDivider}></div>
               <p className={styles.sectionDescription}>
-                Here's an overview of my current technical skills and professional competencies. 
+                Here's an overview of my current technical skills and professional competencies.
                 I believe in continuous learning and constantly strive to improve my abilities.
               </p>
             </div>
@@ -208,7 +208,7 @@ const Skills = () => {
               <div className={styles.journeyContent}>
                 <h3 className={styles.journeyTitle}>My Learning Journey</h3>
                 <p className={styles.journeyDescription}>
-                  Currently focused on mastering <strong>React</strong> and <strong>Node.js</strong> to become a 
+                  Currently focused on mastering <strong>React</strong> and <strong>Node.js</strong> to become a
                   full-stack developer. Building projects and learning modern web development practices.
                 </p>
                 <div className={styles.learningFocus}>
@@ -263,7 +263,7 @@ const Skills = () => {
                   </div>
                   <div className={styles.skillInfo}>
                     <h4 className={styles.skillName}>{skill.name}</h4>
-                    <span 
+                    <span
                       className={styles.skillStatus}
                       style={{ color: getStatusColor(skill.status) }}
                     >
@@ -279,7 +279,7 @@ const Skills = () => {
                     <span className={styles.progressPercentage}>{skill.level}%</span>
                   </div>
                   <div className={styles.progressBar}>
-                    <div 
+                    <div
                       className={styles.progressFill}
                       style={{ width: `${skill.level}%` }}
                     ></div>

@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { ThemeProvider } from './context/ThemeContext';
 import Header from './components/layout/Header';
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';
@@ -11,17 +12,19 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <ThemeProvider>
+      <div className="App">
+        <Header />
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </ThemeProvider>
   )
 }
 

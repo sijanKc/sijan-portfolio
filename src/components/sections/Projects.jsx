@@ -30,21 +30,21 @@ const Projects = () => {
     {
       id: 2,
       title: 'Paper Trading Platform',
-      description: 'A stock trading simulator built with React.js that provides a realistic trading experience without financial risk.',
-      fullDescription: 'Paper Trading Platform is a React-based stock market simulator that allows users to practice trading with virtual money. It features real-time market data visualization, portfolio management, and trading history with interactive charts and responsive design.',
+      description: 'A comprehensive full-stack stock trading simulator built with the MERN stack that provides a realistic trading experience.',
+      fullDescription: 'Paper Trading Platform is a full-stack stock market simulator that allows users to practice trading with virtual money. Built with MongoDB, Express, React, and Node.js, it features real-time market data visualization, secure user authentication, portfolio management, and trading history.',
       gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
       icon: '📈',
-      technologies: ['React.js', 'JavaScript', 'Bootstrap', 'CSS3', 'HTML5'],
-      category: 'frontend',
+      technologies: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Bootstrap'],
+      category: 'fullstack',
       github: 'https://github.com/sijanKc/PaperTrading',
       demo: '#',
       features: [
-        'Real-time Trading Simulation',
-        'Interactive Stock Charts',
+        'Secure User Authentication',
+        'Real-time Market Data',
         'Portfolio Management',
-        'Responsive UI Components',
-        'State Management',
-        'Dynamic Data Rendering'
+        'Buy/Sell Stock Functionality',
+        'Transaction History',
+        'MERN Stack Architecture'
       ],
       status: 'Completed'
     },
@@ -78,8 +78,8 @@ const Projects = () => {
     { id: 'backend', name: 'Backend' }
   ];
 
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
+  const filteredProjects = activeFilter === 'all'
+    ? projects
     : projects.filter(project => project.category === activeFilter);
 
   const openProjectModal = (project) => {
@@ -101,7 +101,7 @@ const Projects = () => {
               <h2 className={styles.sectionTitle}>Featured Projects</h2>
               <div className={styles.headerDivider}></div>
               <p className={styles.sectionDescription}>
-                Here are some of my recent projects that showcase my skills in full-stack development, 
+                Here are some of my recent projects that showcase my skills in full-stack development,
                 problem-solving, and creating user-friendly applications.
               </p>
             </div>
@@ -132,7 +132,7 @@ const Projects = () => {
               <div className={styles.projectCard}>
                 {/* Project Image - UPDATED with Gradient + Icon */}
                 <div className={styles.projectImage}>
-                  <div 
+                  <div
                     className={styles.gradientBackground}
                     style={{ background: project.gradient }}
                   >
@@ -140,36 +140,32 @@ const Projects = () => {
                   </div>
                   <div className={styles.projectOverlay}>
                     <div className={styles.projectActions}>
-                      <button 
-                        className={styles.viewBtn}
+                      <div className={styles.actionButtons}>
+                        {project.demo && project.demo !== '#' && (
+                          <a
+                            href={project.demo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.actionBtn}
+                          >
+                            Live Demo
+                          </a>
+                        )}
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`${styles.actionBtn} ${styles.githubBtnOutline}`}
+                        >
+                          GitHub Link
+                        </a>
+                      </div>
+                      <button
+                        className={styles.viewDetailsBtn}
                         onClick={() => openProjectModal(project)}
                       >
                         View Details
                       </button>
-                      <div className={styles.actionLinks}>
-                        <a 
-                          href={project.github} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className={styles.githubLink}
-                        >
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                          </svg>
-                        </a>
-                        {project.demo && project.demo !== '#' && (
-                          <a 
-                            href={project.demo} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className={styles.demoLink}
-                          >
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm4 0h-2V9h2v8z"/>
-                            </svg>
-                          </a>
-                        )}
-                      </div>
                     </div>
                   </div>
                   <div className={styles.projectStatus}>
@@ -183,7 +179,7 @@ const Projects = () => {
                 <div className={styles.projectContent}>
                   <h3 className={styles.projectTitle}>{project.title}</h3>
                   <p className={styles.projectDescription}>{project.description}</p>
-                  
+
                   {/* Technologies */}
                   <div className={styles.technologies}>
                     {project.technologies.slice(0, 4).map(tech => (
@@ -207,14 +203,14 @@ const Projects = () => {
               <p className={styles.ctaDescription}>
                 Check out my GitHub profile for more projects and code samples.
               </p>
-              <a 
-                href="https://github.com/sijanKc" 
-                target="_blank" 
+              <a
+                href="https://github.com/sijanKc"
+                target="_blank"
                 rel="noopener noreferrer"
                 className={styles.githubCta}
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                 </svg>
                 Visit My GitHub
               </a>
@@ -229,15 +225,15 @@ const Projects = () => {
           <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
             <button className={styles.closeButton} onClick={closeProjectModal}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
               </svg>
             </button>
-            
+
             <div className={styles.modalBody}>
               <div className="row">
                 <div className="col-lg-6">
                   <div className={styles.modalImage}>
-                    <div 
+                    <div
                       className={styles.modalGradient}
                       style={{ background: selectedProject.gradient }}
                     >
@@ -249,7 +245,7 @@ const Projects = () => {
                   <div className={styles.modalDetails}>
                     <h3>{selectedProject.title}</h3>
                     <p className={styles.modalDescription}>{selectedProject.fullDescription}</p>
-                    
+
                     <div className={styles.projectInfo}>
                       <div className={styles.infoItem}>
                         <span className={styles.infoLabel}>Status:</span>
@@ -282,26 +278,26 @@ const Projects = () => {
                     </div>
 
                     <div className={styles.modalActions}>
-                      <a 
-                        href={selectedProject.github} 
-                        target="_blank" 
+                      <a
+                        href={selectedProject.github}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className={styles.githubBtn}
                       >
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                         </svg>
                         View Code
                       </a>
                       {selectedProject.demo && selectedProject.demo !== '#' && (
-                        <a 
-                          href={selectedProject.demo} 
-                          target="_blank" 
+                        <a
+                          href={selectedProject.demo}
+                          target="_blank"
                           rel="noopener noreferrer"
                           className={styles.demoBtn}
                         >
                           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm4 0h-2V9h2v8z"/>
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm4 0h-2V9h2v8z" />
                           </svg>
                           Live Demo
                         </a>
