@@ -54,9 +54,9 @@ The output will be in the `dist` directory.
 
 ## 🤝 Connect With Me
 
-- **GitHub**: [Your GitHub Profile](https://github.com/)
-- **LinkedIn**: [Your LinkedIn Profile](https://linkedin.com/)
-- **Email**: [your.email@example.com](mailto:your.email@example.com)
+- **GitHub**: https://github.com/sijanKc
+- **LinkedIn**: https://www.linkedin.com/in/sijan-k-c-4259a2296
+- **Email**: sijankc542@gmail.com
 
 ---
 
