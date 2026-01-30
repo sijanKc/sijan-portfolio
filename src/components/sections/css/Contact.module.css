@@ -1,7 +1,7 @@
 /* Contact Section */
 .contact {
-  padding: 120px 0;
-  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  padding: var(--section-padding-y) 0;
+  background: var(--bg-secondary);
   position: relative;
 }
 
@@ -445,7 +445,7 @@
 
 @media (max-width: 991.98px) {
   .contact {
-    padding: 80px 0;
+    padding: var(--section-padding-y-mobile) 0;
   }
 
   .contactFormSection {

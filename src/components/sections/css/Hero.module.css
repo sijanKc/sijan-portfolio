@@ -1,12 +1,11 @@
-/* Hero Section */
 .hero {
   position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+  background: var(--bg-primary);
   overflow: hidden;
-  padding: 100px 0 50px;
+  padding: var(--header-height) 0 var(--section-padding-y);
 }
 
 /* Animated Background Shapes */
@@ -518,7 +517,7 @@
 @media (max-width: 991.98px) {
   .hero {
     text-align: center;
-    padding: 120px 0 50px;
+    padding: calc(var(--header-height) + 20px) 0 var(--section-padding-y-mobile);
   }
 
   .heroTitle {

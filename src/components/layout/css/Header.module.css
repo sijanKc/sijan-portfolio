@@ -21,12 +21,15 @@
 
 /* Navbar */
 .navbar {
-  padding: 1rem 0;
+  height: var(--header-height);
+  padding: 0;
+  display: flex;
+  align-items: center;
   transition: all 0.4s ease;
 }
 
 .header.scrolled .navbar {
-  padding: 0.5rem 0;
+  height: calc(var(--header-height) * 0.8);
 }
 
 /* Brand/Logo - Updated for SK.Dev */

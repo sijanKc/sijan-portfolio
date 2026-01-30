@@ -50,24 +50,24 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: 'TaskFlow Manager',
-      description: 'A modern task management application with drag-and-drop functionality and team collaboration features.',
-      fullDescription: 'TaskFlow Manager is a collaborative project management tool that helps teams organize tasks efficiently. It features Kanban-style boards, real-time updates, file attachments, and progress tracking with an intuitive drag-and-drop interface.',
-      gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-      icon: '✅',
-      technologies: ['React.js', 'Node.js', 'MongoDB', 'Express.js', 'Socket.io'],
+      title: 'Nepmart',
+      description: 'A modern e-commerce platform for Nepali authentic products with category-based filtering and premium UI.',
+      fullDescription: 'Nepmart is a specialized e-commerce platform designed to showcase and sell authentic Nepali products. It features a refined user interface with smooth animations, local category filtering (Handicrafts, Spices, Clothing), and a responsive shopping experience built with modern web technologies.',
+      gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+      icon: '🛍️',
+      technologies: ['React.js', 'Vite', 'Framer Motion', 'Tailwind CSS', 'Context API'],
       category: 'fullstack',
-      github: '#',
+      github: 'https://github.com/sijanKc/Nepmart',
       demo: '#',
       features: [
-        'Drag & Drop Interface',
-        'Real-time Collaboration',
-        'Team Management',
-        'File Attachments',
-        'Progress Analytics',
-        'Mobile Responsive'
+        'Authentic Nepali Product Catalog',
+        'Category-based Filtering',
+        'Premium Animations with Framer Motion',
+        'Mobile-First Responsive Design',
+        'Centralized State Management',
+        'Interactive Hero Sliders'
       ],
-      status: 'In Progress'
+      status: 'Completed'
     }
   ];
 
