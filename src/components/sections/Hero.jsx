@@ -33,14 +33,6 @@ const Hero = () => {
 
   return (
     <section id="home" className={styles.hero}>
-      {/* Animated Background Elements */}
-      <div className={styles.backgroundShapes}>
-        <div className={styles.shape1}></div>
-        <div className={styles.shape2}></div>
-        <div className={styles.shape3}></div>
-        <div className={styles.shape4}></div>
-      </div>
-
       <div className="container">
         <div className="row align-items-center min-vh-100">
           <div className="col-lg-6">
@@ -77,6 +69,9 @@ const Hero = () => {
                 </a>
                 <a href="#contact" className={`btn ${styles.secondaryBtn}`}>
                   Get In Touch
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: '10px' }}>
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                  </svg>
                 </a>
               </div>
 
@@ -112,16 +107,6 @@ const Hero = () => {
                     />
                   </div>
 
-                  {/* Floating Elements */}
-                  <div className={styles.floatingElement1}>
-                    <span>🚀</span>
-                  </div>
-                  <div className={styles.floatingElement2}>
-                    <span>💻</span>
-                  </div>
-                  <div className={styles.floatingElement3}>
-                    <span>⭐</span>
-                  </div>
                 </div>
 
                 {/* Experience Badge */}

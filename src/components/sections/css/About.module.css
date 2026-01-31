@@ -135,7 +135,6 @@
   border: 1px solid var(--border-color);
   transition: all 0.3s ease;
   height: 100%;
-  margin-bottom: 1.5rem;
 }
 
 .competencyCard:hover {
@@ -352,11 +351,6 @@
   transform: translateY(-2px);
 }
 
-.techIcon {
-  font-size: 1.5rem;
-  width: 40px;
-  text-align: center;
-}
 
 .techInfo {
   flex: 1;
@@ -395,7 +389,7 @@
 
 /* Education Section */
 .educationSection {
-  margin-top: 3rem;
+  margin-top: 4rem;
 }
 
 .educationTitle {
@@ -514,7 +508,7 @@
 
 /* CTA Section */
 .ctaSection {
-  margin-top: 3rem;
+  margin-top: 4rem;
 }
 
 .ctaCard {

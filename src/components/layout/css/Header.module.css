@@ -285,10 +285,11 @@
     padding: 2rem;
     box-shadow: -8px 0 32px var(--card-shadow);
     transition: right 0.4s ease;
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    z-index: 1001;
   }
 
   .navbarCollapse.show {

@@ -170,9 +170,16 @@
 }
 
 .contactIcon {
-  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 20px;
-  text-align: center;
+  color: #667eea;
+}
+
+.contactIcon svg {
+  width: 18px;
+  height: 18px;
 }
 
 .contactText {

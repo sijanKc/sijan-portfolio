@@ -248,7 +248,7 @@ const Skills = () => {
         </div>
 
         {/* Skills Grid */}
-        <div className="row">
+        <div className="row g-4">
           {filteredSkills.map(skill => (
             <div key={skill.id} className="col-lg-3 col-md-4 col-sm-6">
               <div className={styles.skillCard}>

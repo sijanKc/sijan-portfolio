@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import styles from './css/Projects.module.css';
+import quizhubVideo from '../../assets/video/quizhub.mp4';
+import papertradingVideo from '../../assets/video/papertrading.mp4';
+import nepmartVideo from '../../assets/video/nepmart.mp4';
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -13,6 +16,7 @@ const Projects = () => {
       fullDescription: 'QuizHub is a complete web-based quiz platform built with modern web technologies. It features user authentication, score tracking, and a comprehensive admin panel for quiz management. The platform supports multiple quiz categories, timed tests, and detailed performance analytics.',
       gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
       icon: '🎯',
+      video: quizhubVideo,
       technologies: ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'MySQL', 'XAMPP'],
       category: 'fullstack',
       github: 'https://github.com/sijanKc/Quizhub',
@@ -34,6 +38,7 @@ const Projects = () => {
       fullDescription: 'Paper Trading Platform is a full-stack stock market simulator that allows users to practice trading with virtual money. Built with MongoDB, Express, React, and Node.js, it features real-time market data visualization, secure user authentication, portfolio management, and trading history.',
       gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
       icon: '📈',
+      video: papertradingVideo,
       technologies: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Bootstrap'],
       category: 'fullstack',
       github: 'https://github.com/sijanKc/PaperTrading',
@@ -55,6 +60,7 @@ const Projects = () => {
       fullDescription: 'Nepmart is a specialized e-commerce platform designed to showcase and sell authentic Nepali products. It features a refined user interface with smooth animations, local category filtering (Handicrafts, Spices, Clothing), and a responsive shopping experience built with modern web technologies.',
       gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
       icon: '🛍️',
+      video: nepmartVideo,
       technologies: ['React.js', 'Vite', 'Framer Motion', 'Tailwind CSS', 'Context API'],
       category: 'fullstack',
       github: 'https://github.com/sijanKc/Nepmart',
@@ -132,12 +138,23 @@ const Projects = () => {
               <div className={styles.projectCard}>
                 {/* Project Image - UPDATED with Gradient + Icon */}
                 <div className={styles.projectImage}>
-                  <div
-                    className={styles.gradientBackground}
-                    style={{ background: project.gradient }}
-                  >
-                    <div className={styles.projectIcon}>{project.icon}</div>
-                  </div>
+                  {project.video ? (
+                    <video
+                      src={project.video}
+                      className={styles.projectVideo}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                    />
+                  ) : (
+                    <div
+                      className={styles.gradientBackground}
+                      style={{ background: project.gradient }}
+                    >
+                      <div className={styles.projectIcon}>{project.icon}</div>
+                    </div>
+                  )}
                   <div className={styles.projectOverlay}>
                     <div className={styles.projectActions}>
                       <div className={styles.actionButtons}>
@@ -233,12 +250,23 @@ const Projects = () => {
               <div className="row">
                 <div className="col-lg-6">
                   <div className={styles.modalImage}>
-                    <div
-                      className={styles.modalGradient}
-                      style={{ background: selectedProject.gradient }}
-                    >
-                      <div className={styles.modalProjectIcon}>{selectedProject.icon}</div>
-                    </div>
+                    {selectedProject.video ? (
+                      <video
+                        src={selectedProject.video}
+                        className={styles.modalVideo}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                      />
+                    ) : (
+                      <div
+                        className={styles.modalGradient}
+                        style={{ background: selectedProject.gradient }}
+                      >
+                        <div className={styles.modalProjectIcon}>{selectedProject.icon}</div>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className="col-lg-6">

@@ -54,6 +54,7 @@ const Header = () => {
               className={`navbar-toggler ${styles.navbarToggler}`}
               type="button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-expanded={isMobileMenuOpen}
             >
               <span className={styles.hamburger}>
                 <span></span>
@@ -63,7 +64,7 @@ const Header = () => {
             </button>
 
             {/* Navigation Menu */}
-            <div className={`collapse navbar-collapse ${isMobileMenuOpen ? 'show' : ''} ${styles.navbarCollapse}`}>
+            <div className={`collapse navbar-collapse ${isMobileMenuOpen ? 'show ' + styles.show : ''} ${styles.navbarCollapse}`}>
               <ul className={`navbar-nav ms-auto mb-2 mb-lg-0 ${styles.navbarNav}`}>
                 {navItems.map((item, index) => (
                   <li key={item.name} className="nav-item">
