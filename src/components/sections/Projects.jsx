@@ -1,143 +1,38 @@
 import React, { useState } from 'react';
 import styles from './css/Projects.module.css';
-import quizhubVideo from '../../assets/video/quizhub.mp4';
-import papertradingVideo from '../../assets/video/papertrading.mp4';
-import nepmartVideo from '../../assets/video/nepmart.mp4';
+import { projects } from '../../data/projects';
 
 const Projects = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
-
-  const projects = [
-    {
-      id: 1,
-      title: 'QuizHub Application',
-      description: 'A comprehensive full-stack quiz platform enabling users to take quizzes, track scores, and monitor progress with real-time analytics.',
-      fullDescription: 'QuizHub is a complete web-based quiz platform built with modern web technologies. It features user authentication, score tracking, and a comprehensive admin panel for quiz management. The platform supports multiple quiz categories, timed tests, and detailed performance analytics.',
-      gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      icon: '🎯',
-      video: quizhubVideo,
-      technologies: ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'MySQL', 'XAMPP'],
-      category: 'fullstack',
-      github: 'https://github.com/sijanKc/Quizhub',
-      demo: '#',
-      features: [
-        'User Authentication & Authorization',
-        'Real-time Score Tracking',
-        'Quiz Category Management',
-        'Performance Analytics Dashboard',
-        'Responsive Design',
-        'Database Management with MySQL'
-      ],
-      status: 'Completed'
-    },
-    {
-      id: 2,
-      title: 'Paper Trading Platform',
-      description: 'A comprehensive full-stack stock trading simulator built with the MERN stack that provides a realistic trading experience.',
-      fullDescription: 'Paper Trading Platform is a full-stack stock market simulator that allows users to practice trading with virtual money. Built with MongoDB, Express, React, and Node.js, it features real-time market data visualization, secure user authentication, portfolio management, and trading history.',
-      gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-      icon: '📈',
-      video: papertradingVideo,
-      technologies: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Bootstrap'],
-      category: 'fullstack',
-      github: 'https://github.com/sijanKc/PaperTrading',
-      demo: '#',
-      features: [
-        'Secure User Authentication',
-        'Real-time Market Data',
-        'Portfolio Management',
-        'Buy/Sell Stock Functionality',
-        'Transaction History',
-        'MERN Stack Architecture'
-      ],
-      status: 'Completed'
-    },
-    {
-      id: 3,
-      title: 'Nepmart',
-      description: 'A modern e-commerce platform for Nepali authentic products with category-based filtering and premium UI.',
-      fullDescription: 'Nepmart is a specialized e-commerce platform designed to showcase and sell authentic Nepali products. It features a refined user interface with smooth animations, local category filtering (Handicrafts, Spices, Clothing), and a responsive shopping experience built with modern web technologies.',
-      gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-      icon: '🛍️',
-      video: nepmartVideo,
-      technologies: ['React.js', 'Vite', 'Framer Motion', 'Tailwind CSS', 'Context API'],
-      category: 'fullstack',
-      github: 'https://github.com/sijanKc/Nepmart',
-      demo: '#',
-      features: [
-        'Authentic Nepali Product Catalog',
-        'Category-based Filtering',
-        'Premium Animations with Framer Motion',
-        'Mobile-First Responsive Design',
-        'Centralized State Management',
-        'Interactive Hero Sliders'
-      ],
-      status: 'Completed'
-    }
-  ];
-
-  const categories = [
-    { id: 'all', name: 'All Projects' },
-    { id: 'fullstack', name: 'Full Stack' },
-    { id: 'frontend', name: 'Frontend' },
-    { id: 'backend', name: 'Backend' }
-  ];
-
-  const filteredProjects = activeFilter === 'all'
-    ? projects
-    : projects.filter(project => project.category === activeFilter);
 
   const openProjectModal = (project) => {
     setSelectedProject(project);
+    document.body.style.overflow = 'hidden';
   };
 
   const closeProjectModal = () => {
     setSelectedProject(null);
+    document.body.style.overflow = 'auto';
   };
 
   return (
     <section id="projects" className={styles.projects}>
       <div className="container">
         {/* Section Header */}
-        <div className="row">
-          <div className="col-12">
-            <div className={styles.sectionHeader}>
-              <span className={styles.sectionLabel}>My Work</span>
-              <h2 className={styles.sectionTitle}>Featured Projects</h2>
-              <div className={styles.headerDivider}></div>
-              <p className={styles.sectionDescription}>
-                Here are some of my recent projects that showcase my skills in full-stack development,
-                problem-solving, and creating user-friendly applications.
-              </p>
-            </div>
-          </div>
+        <div className={styles.sectionHeader}>
+          <h2 className={styles.sectionTitle}>Projects</h2>
+          <div className={styles.headerDivider}></div>
         </div>
 
-        {/* Filter Buttons */}
-        <div className="row">
-          <div className="col-12">
-            <div className={styles.filterButtons}>
-              {categories.map(category => (
-                <button
-                  key={category.id}
-                  className={`${styles.filterBtn} ${activeFilter === category.id ? styles.active : ''}`}
-                  onClick={() => setActiveFilter(category.id)}
-                >
-                  {category.name}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Projects Grid - UPDATED */}
-        <div className="row">
-          {filteredProjects.map(project => (
-            <div key={project.id} className="col-lg-4 col-md-6">
-              <div className={styles.projectCard}>
-                {/* Project Image - UPDATED with Gradient + Icon */}
-                <div className={styles.projectImage}>
+        {/* Project Grid */}
+        <div className="row g-4">
+          {projects.map((project) => (
+            <div key={project.id} className="col-lg-6">
+              <div
+                className={styles.projectCard}
+                onClick={() => openProjectModal(project)}
+              >
+                <div className={styles.projectImageContainer}>
                   {project.video ? (
                     <video
                       src={project.video}
@@ -148,161 +43,94 @@ const Projects = () => {
                       playsInline
                     />
                   ) : (
-                    <div
-                      className={styles.gradientBackground}
-                      style={{ background: project.gradient }}
-                    >
-                      <div className={styles.projectIcon}>{project.icon}</div>
+                    <div className={styles.gradientBackground}>
+                      <span style={{ fontSize: '4rem' }}>🚀</span>
                     </div>
                   )}
-                  <div className={styles.projectOverlay}>
-                    <div className={styles.projectActions}>
-                      <div className={styles.actionButtons}>
-                        {project.demo && project.demo !== '#' && (
-                          <a
-                            href={project.demo}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.actionBtn}
-                          >
-                            Live Demo
-                          </a>
-                        )}
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`${styles.actionBtn} ${styles.githubBtnOutline}`}
-                        >
-                          GitHub Link
-                        </a>
-                      </div>
-                      <button
-                        className={styles.viewDetailsBtn}
-                        onClick={() => openProjectModal(project)}
-                      >
-                        View Details
-                      </button>
-                    </div>
-                  </div>
-                  <div className={styles.projectStatus}>
-                    <span className={`${styles.statusBadge} ${project.status === 'Completed' ? styles.completed : styles.inProgress}`}>
-                      {project.status}
-                    </span>
+                  <div className={styles.imageOverlay}>
+                    <span className={styles.viewLabel}>View Details</span>
                   </div>
                 </div>
 
-                {/* Project Content */}
                 <div className={styles.projectContent}>
-                  <h3 className={styles.projectTitle}>{project.title}</h3>
+                  <div className={styles.contentTop}>
+                    <h3 className={styles.projectTitle}>{project.title}</h3>
+                    <div className={styles.cardActions}>
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.githubLink}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Source Code
+                      </a>
+                    </div>
+                  </div>
+
                   <p className={styles.projectDescription}>{project.description}</p>
 
-                  {/* Technologies */}
                   <div className={styles.technologies}>
-                    {project.technologies.slice(0, 4).map(tech => (
-                      <span key={tech} className={styles.techTag}>{tech}</span>
+                    {project.tech.map(t => (
+                      <span key={t} className={styles.techTag}>{t}</span>
                     ))}
-                    {project.technologies.length > 4 && (
-                      <span className={styles.moreTech}>+{project.technologies.length - 4} more</span>
-                    )}
                   </div>
+
+                  <button
+                    className={styles.storyBtn}
+                    onClick={() => openProjectModal(project)}
+                  >
+                    The Story Behind It
+                  </button>
                 </div>
               </div>
             </div>
           ))}
         </div>
-
-        {/* CTA Section */}
-        <div className="row">
-          <div className="col-12">
-            <div className={styles.ctaSection}>
-              <h3 className={styles.ctaTitle}>Interested in seeing more?</h3>
-              <p className={styles.ctaDescription}>
-                Check out my GitHub profile for more projects and code samples.
-              </p>
-              <a
-                href="https://github.com/sijanKc"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.githubCta}
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                </svg>
-                Visit My GitHub
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
 
-      {/* Project Detail Modal - UPDATED */}
+      {/* Project Detail Modal */}
       {selectedProject && (
         <div className={styles.modalOverlay} onClick={closeProjectModal}>
           <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-            <button className={styles.closeButton} onClick={closeProjectModal}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-              </svg>
-            </button>
+            <button className={styles.closeButton} onClick={closeProjectModal}>✕</button>
 
             <div className={styles.modalBody}>
               <div className="row">
+                <div className="col-lg-12">
+                  <div style={{ marginBottom: '1.5rem' }}>
+                    <h2 style={{ fontWeight: 700 }}>{selectedProject.title}</h2>
+                    <div className={styles.technologies} style={{ marginTop: '0.5rem' }}>
+                      {selectedProject.tech.map(t => (
+                        <span key={t} className={styles.techTag}>{t}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
                 <div className="col-lg-6">
-                  <div className={styles.modalImage}>
-                    {selectedProject.video ? (
-                      <video
-                        src={selectedProject.video}
-                        className={styles.modalVideo}
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                      />
-                    ) : (
-                      <div
-                        className={styles.modalGradient}
-                        style={{ background: selectedProject.gradient }}
-                      >
-                        <div className={styles.modalProjectIcon}>{selectedProject.icon}</div>
-                      </div>
-                    )}
+                  <div className={styles.modalVisualContainer}>
+                    <video
+                      src={selectedProject.video}
+                      className={styles.modalVideo}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                    />
                   </div>
                 </div>
                 <div className="col-lg-6">
                   <div className={styles.modalDetails}>
-                    <h3>{selectedProject.title}</h3>
-                    <p className={styles.modalDescription}>{selectedProject.fullDescription}</p>
-
-                    <div className={styles.projectInfo}>
-                      <div className={styles.infoItem}>
-                        <span className={styles.infoLabel}>Status:</span>
-                        <span className={`${styles.status} ${selectedProject.status === 'Completed' ? styles.completed : styles.inProgress}`}>
-                          {selectedProject.status}
-                        </span>
-                      </div>
-                      <div className={styles.infoItem}>
-                        <span className={styles.infoLabel}>Category:</span>
-                        <span className={styles.category}>{selectedProject.category}</span>
-                      </div>
+                    <div className={styles.storySection}>
+                      <h5 className={styles.modalSectionTitle}>The Story</h5>
+                      <p className={styles.modalDescription}>{selectedProject.story}</p>
                     </div>
 
-                    <div className={styles.featuresList}>
-                      <h5>Key Features:</h5>
-                      <ul>
-                        {selectedProject.features.map((feature, index) => (
-                          <li key={index}>{feature}</li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className={styles.technologiesList}>
-                      <h5>Technologies Used:</h5>
-                      <div className={styles.techTags}>
-                        {selectedProject.technologies.map(tech => (
-                          <span key={tech} className={styles.techTag}>{tech}</span>
-                        ))}
-                      </div>
+                    <div className={styles.lessonSection}>
+                      <h5 className={styles.modalSectionTitle}>Key Lesson</h5>
+                      <p className={styles.modalDescription}>
+                        <em>{selectedProject.lesson}</em>
+                      </p>
                     </div>
 
                     <div className={styles.modalActions}>
@@ -310,23 +138,17 @@ const Projects = () => {
                         href={selectedProject.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={styles.githubBtn}
+                        className={styles.modalGithubBtn}
                       >
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                        </svg>
-                        View Code
+                        View Repository
                       </a>
                       {selectedProject.demo && selectedProject.demo !== '#' && (
                         <a
                           href={selectedProject.demo}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={styles.demoBtn}
+                          className={styles.modalDemoBtn}
                         >
-                          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm4 0h-2V9h2v8z" />
-                          </svg>
                           Live Demo
                         </a>
                       )}

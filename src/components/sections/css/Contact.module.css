@@ -1,128 +1,32 @@
-/* Contact Section */
 .contact {
   padding: var(--section-padding-y) 0;
-  background: var(--bg-secondary);
-  position: relative;
+  background: var(--bg-primary);
 }
 
-/* Section Header */
 .sectionHeader {
   text-align: center;
-  margin-bottom: 5rem;
-}
-
-.sectionLabel {
-  display: inline-block;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 0.5rem 1.5rem;
-  border-radius: 25px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
 }
 
 .sectionTitle {
-  font-size: 3.2rem;
+  font-size: var(--font-size-h2);
   font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
-}
-
-.headerDivider {
-  width: 100px;
-  height: 4px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  margin: 0 auto 2rem;
-  border-radius: 2px;
-  position: relative;
-}
-
-.headerDivider::after {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
-  height: 8px;
-  background: #667eea;
-  border-radius: 4px;
-}
-
-.sectionDescription {
-  font-size: 1.2rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* Contact Info */
-.contactInfo {
-  background: var(--card-bg);
-  padding: 2.5rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 40px var(--card-shadow);
-  border: 1px solid var(--border-color);
-  height: fit-content;
-  position: sticky;
-  top: 2rem;
-}
-
-.availabilityBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: rgba(72, 187, 120, 0.1);
-  color: #38a169;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: 2rem;
-  border: 1px solid rgba(72, 187, 120, 0.3);
-}
-
-.availableDot {
-  width: 8px;
-  height: 8px;
-  background: #38a169;
-  border-radius: 50%;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.5;
-  }
-}
-
-.contactTitle {
-  font-size: 1.8rem;
-  font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
 
-.contactSubtitle {
-  color: var(--text-secondary);
-  margin-bottom: 2rem;
-  line-height: 1.5;
+.headerDivider {
+  width: 40px;
+  height: 4px;
+  background: var(--accent-blue);
+  margin: 0 auto;
+  border-radius: 2px;
 }
 
-/* Contact Details */
-.contactDetails {
-  margin-bottom: 2.5rem;
+.contactTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
 .contactItem {
@@ -130,404 +34,121 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  border-radius: 12px;
+  background: var(--bg-secondary);
+  border-radius: 8px;
   text-decoration: none;
-  color: inherit;
-  transition: all 0.3s ease;
-  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  transition: background 0.3s ease;
 }
 
 .contactItem:hover {
-  background: rgba(102, 126, 234, 0.05);
-  transform: translateX(5px);
+  background: var(--border-color);
 }
 
 .contactIcon {
-  width: 50px;
-  height: 50px;
-  background: rgba(102, 126, 234, 0.1);
-  border-radius: 12px;
+  color: var(--accent-blue);
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  color: #667eea;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
-}
-
-.contactIcon svg {
-  width: 24px;
-  height: 24px;
-}
-
-.contactText {
-  flex: 1;
 }
 
 .contactLabel {
   display: block;
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   color: var(--text-secondary);
-  margin-bottom: 0.25rem;
+  text-transform: uppercase;
 }
 
 .contactValue {
-  display: block;
-  font-weight: 600;
-  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.95rem;
 }
 
-/* Social Section */
 .socialSection {
-  margin-bottom: 1rem;
+  margin-top: 2rem;
 }
 
 .socialTitle {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 700;
   margin-bottom: 1rem;
 }
 
 .socialLinks {
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .socialLink {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 1rem;
-  background: rgba(102, 126, 234, 0.05);
-  border-radius: 12px;
-  text-decoration: none;
   color: var(--text-secondary);
-  transition: all 0.3s ease;
-  border: 1px solid rgba(102, 126, 234, 0.1);
+  transition: color 0.3s ease;
 }
 
 .socialLink:hover {
-  background: rgba(102, 126, 234, 0.1);
-  transform: translateX(5px);
-  color: #667eea;
-}
-
-.socialLink svg {
-  flex-shrink: 0;
-}
-
-/* Contact Form Section */
-.contactFormSection {
-  padding-left: 2rem;
+  color: var(--accent-blue);
 }
 
 .formCard {
-  background: var(--card-bg);
-  padding: 2.5rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 40px var(--card-shadow);
-  border: 1px solid var(--border-color);
-  height: 100%;
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 12px;
 }
 
 .formTitle {
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-}
-
-.formSubtitle {
-  color: var(--text-secondary);
-  margin-bottom: 2rem;
-  line-height: 1.5;
-}
-
-/* Contact Form */
-.contactForm {
-  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
 .formGroup {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .formLabel {
   display: block;
+  font-size: 0.85rem;
   font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
 }
 
 .formInput,
 .formTextarea {
   width: 100%;
-  padding: 0.875rem 1rem;
-  border: 2px solid var(--border-color);
-  border-radius: 12px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
   background: var(--bg-primary);
+  border-radius: 6px;
+  font-size: 0.9rem;
   color: var(--text-primary);
-  font-family: inherit;
 }
 
-.formInput:focus,
-.formTextarea:focus {
-  outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-}
-
-.formInput::placeholder,
-.formTextarea::placeholder {
-  color: var(--text-secondary);
-  opacity: 0.6;
-}
-
-.formTextarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-/* Submit Button */
 .submitBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--accent-blue);
   color: white;
   border: none;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  font-size: 1rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-  position: relative;
-  overflow: hidden;
+  transition: opacity 0.3s ease;
 }
 
-.submitBtn:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
-}
-
-.submitBtn:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-  transform: none;
-}
-
-.submitBtn.loading {
-  pointer-events: none;
-}
-
-.spinner {
-  width: 18px;
-  height: 18px;
-  border: 2px solid transparent;
-  border-top: 2px solid white;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* Status Messages */
-.successMessage,
-.errorMessage {
-  padding: 1rem;
-  border-radius: 12px;
-  margin-top: 1rem;
-  font-weight: 500;
+.submitBtn:hover {
+  opacity: 0.9;
 }
 
 .successMessage {
-  background: rgba(72, 187, 120, 0.1);
-  color: #38a169;
-  border: 1px solid rgba(72, 187, 120, 0.3);
+  color: #10b981;
+  margin-top: 1rem;
+  font-size: 0.9rem;
 }
 
-.errorMessage {
-  background: rgba(229, 62, 62, 0.1);
-  color: #e53e3e;
-  border: 1px solid rgba(229, 62, 62, 0.3);
-}
-
-/* Quick Contact */
-.quickContact {
-  background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
-  padding: 3rem;
-  border-radius: 20px;
-  color: white;
-  margin-top: 4rem;
-  text-align: center;
-}
-
-.quickContactContent {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.quickContactTitle {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-.quickContactText {
-  font-size: 1.1rem;
-  opacity: 0.8;
-  margin-bottom: 2rem;
-  line-height: 1.5;
-}
-
-.quickContactActions {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.phoneBtn,
-.whatsappBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  border: none;
-  cursor: pointer;
-}
-
-.phoneBtn {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
-}
-
-.phoneBtn:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
-  transform: translateY(-2px);
-}
-
-.whatsappBtn {
-  background: #25D366;
-  color: white;
-  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
-}
-
-.whatsappBtn:hover {
-  background: #128C7E;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
-  color: white;
-}
-
-/* Responsive Design */
-@media (max-width: 1199.98px) {
-  .contactFormSection {
-    padding-left: 1rem;
-  }
-}
-
-@media (max-width: 991.98px) {
+@media (max-width: 991px) {
   .contact {
     padding: var(--section-padding-y-mobile) 0;
   }
 
-  .contactFormSection {
-    padding-left: 0;
-    padding-top: 2rem;
-  }
-
   .contactInfo {
-    position: static;
     margin-bottom: 2rem;
-  }
-
-  .sectionTitle {
-    font-size: 2.5rem;
-  }
-
-  .formCard,
-  .contactInfo {
-    padding: 2rem;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .sectionTitle {
-    font-size: 2rem;
-  }
-
-  .quickContact {
-    padding: 2rem 1.5rem;
-  }
-
-  .quickContactTitle {
-    font-size: 1.5rem;
-  }
-
-  .quickContactActions {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .phoneBtn,
-  .whatsappBtn {
-    width: 200px;
-    justify-content: center;
-  }
-}
-
-@media (max-width: 575.98px) {
-  .sectionTitle {
-    font-size: 1.8rem;
-  }
-
-  .sectionLabel {
-    font-size: 0.8rem;
-  }
-
-  .formCard,
-  .contactInfo {
-    padding: 1.5rem;
-  }
-
-  .contactItem {
-    flex-direction: column;
-    text-align: center;
-    gap: 0.75rem;
-  }
-
-  .socialLinks {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .socialLink {
-    flex: 1;
-    min-width: 120px;
-    justify-content: center;
   }
 }

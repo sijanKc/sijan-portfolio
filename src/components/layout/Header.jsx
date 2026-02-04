@@ -33,7 +33,6 @@ const Header = () => {
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Skills', href: '#skills' },
     { name: 'Contact', href: '#contact' }
   ];
 
@@ -46,7 +45,6 @@ const Header = () => {
             <a className={`navbar-brand ${styles.brand}`} href="#home">
               <span className={styles.brandMain}>SK</span>
               <span className={styles.brandDot}>.</span>
-              <span className={styles.brandTech}>Dev</span>
             </a>
 
             {/* Mobile Toggle Button */}
@@ -90,14 +88,6 @@ const Header = () => {
                 >
                   {theme === 'light' ? '🌙' : '☀️'}
                 </button>
-
-                {/* Call to Action Button */}
-                <div className={styles.ctaContainer}>
-                  <a href="#contact" className={`btn ${styles.ctaButton}`}>
-                    Let's Talk
-                    <span className={styles.ctaIcon}>→</span>
-                  </a>
-                </div>
               </div>
             </div>
           </div>

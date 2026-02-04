@@ -1,487 +1,104 @@
-/* Skills Section */
 .skills {
-  padding: var(--section-padding-y) 0;
+  padding: 6rem 0;
   background: var(--bg-secondary);
-  position: relative;
+  overflow: hidden;
 }
 
-/* Section Header */
 .sectionHeader {
   text-align: center;
-  margin-bottom: 5rem;
-}
-
-.sectionLabel {
-  display: inline-block;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 0.5rem 1.5rem;
-  border-radius: 25px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
+  margin-bottom: 4rem;
 }
 
 .sectionTitle {
-  font-size: 3.2rem;
+  font-size: var(--font-size-h2);
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 1.5rem;
-  line-height: 1.2;
+  margin-bottom: 0.5rem;
 }
 
 .headerDivider {
-  width: 100px;
+  width: 40px;
   height: 4px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  margin: 0 auto 2rem;
-  border-radius: 2px;
-  position: relative;
-}
-
-.headerDivider::after {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
-  height: 8px;
-  background: #667eea;
-  border-radius: 4px;
-}
-
-.sectionDescription {
-  font-size: 1.2rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  max-width: 600px;
+  background: var(--accent-blue);
   margin: 0 auto;
+  border-radius: 2px;
 }
 
-/* Journey Card */
-.journeyCard {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 3rem;
-  border-radius: 20px;
-  color: white;
-  margin-bottom: 3rem;
-  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
-  position: relative;
-  overflow: hidden;
-}
-
-.journeyCard::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-  transform: rotate(45deg);
-  animation: shine 6s infinite;
-}
-
-.journeyContent {
-  position: relative;
-  z-index: 2;
-}
-
-.journeyTitle {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-.journeyDescription {
-  font-size: 1.1rem;
-  opacity: 0.9;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-.journeyDescription strong {
-  color: #fff;
-  font-weight: 600;
-}
-
-.learningFocus {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.focusBadge {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-@keyframes shine {
-  0% {
-    transform: translateX(-100%) translateY(-100%) rotate(45deg);
-  }
-
-  100% {
-    transform: translateX(100%) translateY(100%) rotate(45deg);
-  }
-}
-
-/* Category Filters */
-.categoryFilters {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
-}
-
-.categoryBtn {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 1.5rem;
-  background: var(--card-bg);
-  border: 2px solid var(--border-color);
-  border-radius: 15px;
-  color: var(--text-secondary);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px var(--card-shadow);
-}
-
-.categoryBtn:hover {
-  border-color: #667eea;
-  color: #667eea;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
-}
-
-.categoryBtn.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-color: transparent;
-  color: white;
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
-  transform: translateY(-2px);
-}
-
-.categoryIcon {
-  font-size: 1.2rem;
-}
-
-/* Skill Cards */
-.skillCard {
-  background: var(--card-bg);
-  padding: 2rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 40px var(--card-shadow);
-  transition: all 0.3s ease;
-  border: 1px solid var(--border-color);
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-}
-
-.skillCard:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-}
-
-.skillCard::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
+.carouselContainer {
   width: 100%;
-  height: 4px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  padding: 1rem 0;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
-.skillCard:hover::before {
-  transform: scaleX(1);
-}
-
-/* Skill Header */
-.skillHeader {
+.scroller {
   display: flex;
+  width: max-content;
+  gap: 4rem;
+  animation: scroll 30s linear infinite;
+}
+
+.scroller:hover {
+  animation-play-state: paused;
+}
+
+.skillItem {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  gap: 1.2rem;
+  min-width: 140px;
 }
 
 .skillIcon {
-  width: 50px;
-  height: 50px;
-  background: rgba(102, 126, 234, 0.1);
-  border-radius: 12px;
+  width: 70px;
+  height: 70px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  color: var(--accent-blue);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px var(--card-shadow);
 }
 
-.skillIcon img {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
-}
-
-.skillIcon span {
-  font-size: 1.5rem;
-}
-
-.skillInfo {
-  flex: 1;
+.skillItem:hover .skillIcon {
+  transform: translateY(-8px);
+  border-color: var(--accent-blue);
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
 }
 
 .skillName {
-  font-size: 1.3rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.25rem;
-}
-
-.skillStatus {
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-/* Progress Section */
-.progressSection {
-  margin-bottom: 1rem;
-}
-
-.progressHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.5rem;
-}
-
-.progressLabel {
-  font-size: 0.9rem;
   color: var(--text-secondary);
-  font-weight: 500;
+  white-space: nowrap;
 }
 
-.progressPercentage {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #667eea;
-}
-
-.progressBar {
-  width: 100%;
-  height: 8px;
-  background: #e2e8f0;
-  border-radius: 4px;
-  overflow: hidden;
-  position: relative;
-}
-
-.progressFill {
-  height: 100%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 4px;
-  transition: width 1.5s ease-in-out;
-  position: relative;
-}
-
-.progressFill::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-  animation: shimmer 3s infinite;
-}
-
-@keyframes shimmer {
+@keyframes scroll {
   0% {
-    transform: translateX(-100%);
+    transform: translateX(0);
   }
 
   100% {
-    transform: translateX(100%);
+    transform: translateX(calc(-50% - 2rem));
   }
 }
 
-/* Skill Description */
-.skillDescription {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin-bottom: 1rem;
-}
-
-/* Learning Indicator */
-.learningIndicator {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.8rem;
-  color: #ed8936;
-  font-weight: 500;
-  padding: 0.5rem;
-  background: rgba(237, 137, 54, 0.1);
-  border-radius: 8px;
-  border: 1px solid rgba(237, 137, 54, 0.2);
-}
-
-.learningDot {
-  width: 8px;
-  height: 8px;
-  background: #ed8936;
-  border-radius: 50%;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-
-  0%,
-  100% {
-    opacity: 1;
+@media (max-width: 768px) {
+  .scroller {
+    gap: 2.5rem;
   }
 
-  50% {
-    opacity: 0.5;
-  }
-}
-
-/* Skills Summary */
-.skillsSummary {
-  background: var(--card-bg);
-  padding: 3rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 40px var(--card-shadow);
-  margin-top: 4rem;
-  border: 1px solid var(--border-color);
-}
-
-.summaryItem {
-  text-align: center;
-  padding: 1rem;
-}
-
-.summaryNumber {
-  display: block;
-  font-size: 3rem;
-  font-weight: 700;
-  color: #667eea;
-  margin-bottom: 0.5rem;
-  line-height: 1;
-}
-
-.summaryLabel {
-  font-size: 1rem;
-  color: var(--text-secondary);
-  font-weight: 500;
-}
-
-/* Responsive Design */
-@media (max-width: 1199.98px) {
-  .skillCard {
-    padding: 1.5rem;
-  }
-}
-
-@media (max-width: 991.98px) {
-  .skills {
-    padding: var(--section-padding-y-mobile) 0;
-  }
-
-  .sectionTitle {
-    font-size: 2.5rem;
-  }
-
-  .journeyCard {
-    padding: 2rem;
-  }
-
-  .journeyTitle {
-    font-size: 1.8rem;
-  }
-
-  .categoryFilters {
-    gap: 0.5rem;
-  }
-
-  .categoryBtn {
-    padding: 0.75rem 1rem;
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .sectionTitle {
-    font-size: 2rem;
-  }
-
-  .journeyCard {
-    padding: 1.5rem;
-  }
-
-  .categoryFilters {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .categoryBtn {
-    width: 200px;
-    justify-content: center;
-  }
-
-  .learningFocus {
-    justify-content: center;
-  }
-
-  .skillsSummary {
-    padding: 2rem 1rem;
-  }
-
-  .summaryNumber {
-    font-size: 2.5rem;
-  }
-}
-
-@media (max-width: 575.98px) {
-  .sectionTitle {
-    font-size: 1.8rem;
-  }
-
-  .sectionLabel {
-    font-size: 0.8rem;
-  }
-
-  .skillCard {
-    padding: 1.25rem;
-  }
-
-  .skillHeader {
-    flex-direction: column;
-    text-align: center;
-    gap: 0.75rem;
+  .skillItem {
+    min-width: 100px;
   }
 
   .skillIcon {
-    margin: 0 auto;
-  }
-
-  .summaryNumber {
-    font-size: 2rem;
+    width: 60px;
+    height: 60px;
   }
 }
