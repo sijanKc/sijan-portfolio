@@ -37,8 +37,7 @@ const Footer = () => {
           </div>
 
           <div className={styles.copyright}>
-            <p>&copy; {currentYear} • Built in Kathmandu</p>
-            <p style={{ fontSize: '0.8rem', opacity: 0.8 }}>Developed by Sijan KC</p>
+            <p>&copy; Developer Portfolio by Sijan kc</p>
           </div>
         </div>
       </div>

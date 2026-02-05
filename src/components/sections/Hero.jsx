@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './css/Hero.module.css';
-import profilePhoto from '../../assets/image/sijan.png';
 import { FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   const [currentText, setCurrentText] = useState(0);
@@ -79,19 +79,28 @@ const Hero = () => {
           </div>
 
           <div className="col-lg-5">
-            <div className={styles.heroVisual}>
-              <div className={styles.profileContainer}>
-                <div className={styles.profileImage}>
-                  <div className={styles.imagePlaceholder}>
-                    <img
-                      src={profilePhoto}
-                      alt="Sijan KC"
-                      className={styles.profileImg}
-                    />
-                  </div>
+            <motion.div
+              className={styles.heroVisual}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <div className={styles.codeCard}>
+                <div className={styles.codeHeader}>
+                  <div className={styles.dotRed}></div>
+                  <div className={styles.dotYellow}></div>
+                  <div className={styles.dotGreen}></div>
+                  <span className={styles.fileName}>about_me.js</span>
+                </div>
+                <div className={styles.codeBody}>
+                  <div className={styles.codeLine}><span className={styles.keyword}>const</span> <span className={styles.variable}>sijan</span> = {'{'}</div>
+                  <div className={styles.codeLine}>&nbsp;&nbsp;role: <span className={styles.string}>'Developer'</span>,</div>
+                  <div className={styles.codeLine}>&nbsp;&nbsp;location: <span className={styles.string}>'Nepal'</span>,</div>
+                  <div className={styles.codeLine}>&nbsp;&nbsp;status: <span className={styles.string}>'Learning'</span></div>
+                  <div className={styles.codeLine}>{'}'};</div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
